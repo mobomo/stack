@@ -85,7 +85,7 @@ variable "ecs_min_size" {
   // create 2 instances in our cluster by default
   // 1 instance to run our service
   // 1 extra instance so we can deploy without port collisions
-  default = 2
+  default = 1
 }
 
 variable "ecs_max_size" {
@@ -95,7 +95,7 @@ variable "ecs_max_size" {
 
 variable "ecs_desired_capacity" {
   description = "the desired number of instances to use in the default ecs cluster"
-  default     = 2
+  default     = 1
 }
 
 variable "ecs_root_volume_size" {
