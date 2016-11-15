@@ -77,6 +77,8 @@ variable "subnet_ids" {
   type = "list"
 }
 
+variable "availability_zone" { }
+
 resource "aws_security_group" "main" {
   name        = "${var.name}-rds-instance"
   description = "Allows traffic to rds from other security groups"
@@ -126,6 +128,8 @@ resource "aws_db_instance" "main" {
   storage_encrypted       = "${var.storage_encrypted}"
   db_subnet_group_name    = "${aws_db_subnet_group.main.name}"
   publicly_accessible     = "${var.publicly_accessible}"
+  availability_zone       = "${var.availability_zone}"
+
 
   tags {
     Name        = "postgresql"
