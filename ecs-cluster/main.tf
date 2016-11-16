@@ -378,6 +378,11 @@ resource "aws_cloudwatch_metric_alarm" "memory_low" {
   depends_on = ["aws_cloudwatch_metric_alarm.cpu_low"]
 }
 
+// The cluster id
+output "id" {
+  value = "${aws_ecs_cluster.main.id}"
+}
+
 // The cluster name, e.g cdn
 output "name" {
   value = "${var.name}"
